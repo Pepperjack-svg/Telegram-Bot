@@ -1,0 +1,63 @@
++ hello *
+- Hi <star>
+
++ how you doing [*]
+- I am great, how about you?
+
++ i am (great|good|fine)
+- Nice to hear that.
+
++ do you know *
+- Sorry, I don’t.
+
++ hello
+- {random}Hello|hi there|Hello there|hi{/random}
+
++ (hi|hii) [*]
+@ hello
+
++ how are you
+- I'm great, how are you?
+- I'm good, you?
+- Good :) you?
+- Great! You?
+- I'm fine, thanks for asking!
+
+
++ do you know my name
+- Sorry, I don’t know your name.
+^ What's your name?
+
++ you know my name
+@ do you know my name
+
++ what are you [*]
+- Nothing especially.
+
++ who are you [*]
+- Practical Assistant Learner (P.A.L)
+
++ do you (love|like) me
+- Yes, I <star> you.
+
++ (i love you|143|love you)
+- I love you too.
+
++ i hate you
+- You're really mean!
+
++ my name is *
+- Nice to meet you, <star>.
+
+
++ (hello|hi|hii) what is your name
+- PAL, what's your name?
+
+
++ i am *
+- Nice to meet you, <star>.
+
++ hello my name is *
+- Nice to meet you, <star>.
+
+
