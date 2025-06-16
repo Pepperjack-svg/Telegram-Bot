@@ -1,5 +1,3 @@
-Here's your updated **Python bot script** with blank input fields for `TOKEN` and `AUTHORIZED_USERS`, followed by a complete `README.md` file explaining how to set it up and run it.
-
 ---
 
 ### ✅ Updated Python Bot Script (`bot.py`)
@@ -150,18 +148,3 @@ telegram-rivescript-bot/
 * For production use, consider switching from `polling` to `webhook`.
 
 ---
-
-## 🙏 Credits
-
-* [RiveScript](https://github.com/aichaos/rivescript-python)
-* [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
-
-```
-
----
-
-Let me know if you'd like:
-- a version that uses **webhooks**
-- the `.rive` brain example pre-filled with responses
-- Dockerfile or deployment steps for CapRover or VPS
-```
