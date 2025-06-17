@@ -12,7 +12,7 @@
 1. Clone this repository
 2. Install required packages:
    ```
-   pip install telebot rivescript
+   pip install -r requirements.txt
    ```
 3. Create a `brain` folder for your RiveScript files
 4. Add your Telegram bot token in the code:
