@@ -1,41 +1,38 @@
 import telebot
 from rivescript import RiveScript
 
-# Initialize RiveScript
-bot = RiveScript()
-bot.load_directory('brain') 
-bot.sort_replies()
-
-TOKEN = ''  # <- Insert your Telegram bot token here
-AUTHORIZED_USERS = set()  # <- Add authorized user IDs like: {123456789}
-
-# Initialize Telegram Bot
-telebot_bot = telebot.TeleBot(TOKEN)
+# Config
+TOKEN = ''  # <-- Your Telegram bot token
+AUTHORIZED_USERS = {123456789}  # <-- Replace with actual Telegram user IDs
 WELCOME_MESSAGE = "Welcome! How can I assist you today?"
 
+# Initialize RiveScript
+brain_bot = RiveScript()
+brain_bot.load_directory('brain')
+brain_bot.sort_replies()
+
+# Initialize Telegram Bot
+bot = telebot.TeleBot(TOKEN)
+
+# Helper: check if user is authorized
+def is_authorized(message):
+    return message.from_user.id in AUTHORIZED_USERS
+
 # Handle /start command
-@telebot_bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start'])
 def handle_start(message):
-    user_id = message.from_user.id
-    
-    if user_id not in AUTHORIZED_USERS:
-        telebot_bot.reply_to(message, "You are not authorized to use this bot.")
-        return
-    
-    telebot_bot.reply_to(message, WELCOME_MESSAGE)
+    if not is_authorized(message):
+        return bot.reply_to(message, "🚫 You are not authorized to use this bot.")
+    bot.reply_to(message, WELCOME_MESSAGE)
 
-# Handle regular messages
-@telebot_bot.message_handler(func=lambda message: True)
+# Handle all other messages
+@bot.message_handler(func=lambda message: True)
 def handle_message(message):
-    user_id = message.from_user.id
-    
-    if user_id not in AUTHORIZED_USERS:
-        telebot_bot.reply_to(message, "You are not authorized to use this bot.")
-        return
-    
-    reply = bot.reply("localuser", message.text)
-    telebot_bot.reply_to(message, reply)
+    if not is_authorized(message):
+        return bot.reply_to(message, "🚫 You are not authorized to use this bot.")
+    reply = brain_bot.reply("localuser", message.text)
+    bot.reply_to(message, reply)
 
-# Polling loop
+# Run bot
 if __name__ == "__main__":
-    telebot_bot.polling()
+    bot.polling()
