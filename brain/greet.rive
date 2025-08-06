@@ -6,7 +6,7 @@
 
 + i am (great|good|fine)
 - Nice to hear that.
-
+ 
 + do you know *
 - Sorry, I don’t.
 
@@ -40,8 +40,6 @@
 + do you (love|like) me
 - Yes, I <star> you.
 
-+ (i love you|143|love you)
-- I love you too.
 
 + i hate you
 - You're really mean!
